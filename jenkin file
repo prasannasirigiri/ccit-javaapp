@@ -1,0 +1,32 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Clone') {
+            steps {
+                git 'https://github.com/prasannasirigiri/your-repo.git'
+            }
+        }
+
+        stage('Build') {
+            steps {
+                sh 'echo "Building project..."'
+                // Add build commands like: mvn clean install or npm install
+            }
+        }
+
+        stage('Test') {
+            steps {
+                sh 'echo "Running tests..."'
+                // Add test command
+            }
+        }
+
+        stage('Deploy') {
+            steps {
+                sh 'echo "Deploying application..."'
+                // Add deploy command, e.g., copy files to a server or run Docker
+            }
+        }
+    }
+}
